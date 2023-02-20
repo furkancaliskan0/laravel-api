@@ -1,14 +1,41 @@
 <script>
-import Movie from './components/Movie.vue';
+import axios from 'axios';
+
+
 export default{
-    name: "App",
-    components: { 
-      Movie 
+
+  data(){
+    return {
+      movies:[],
     }
+  },
+  mounted(){
+    axios.get('http://localhost:8000/api/v1/movie/all')
+      .then(res => {
+        const data = res.data;
+        const success = data.success;
+        const movies = data.response;
+        if(success){
+          this.movies = movies;
+        }
+        console.log(movies);
+      })
+      .catch(err => console.error(err));
+  },
 }
 </script>
 
 <template>
+   <h1>Movies</h1>
+    <ul>
+      <li v-for="movie in movies" :key="movie.id">
+        {{ movie.name }}
+      </li>
+    </ul>
 
-  <Movie/>
 </template>
+
+<style scoped>
+
+
+</style>

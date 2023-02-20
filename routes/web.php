@@ -7,6 +7,9 @@ use App\Http\Controllers\MainController;
 
 
 
+
+
+
 // Home Route
 Route::get('/', [MainController::class, 'home'])
     ->name('home');
@@ -34,10 +37,3 @@ Route::post('/movie/edit/{movie}', [MainController::class, 'movieUpdate'])
 // Delete Route
 Route::get('/movie/delete/{movie}', [MainController::class, 'movieDelete'])
     ->name('movie.delete');
-
-
-use App\Http\Controllers\ApiController;
-
-
-
-Route::get('/api/v1/movie/all', [ApiController::class, 'movieAll']);

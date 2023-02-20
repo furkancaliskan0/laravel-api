@@ -14,7 +14,6 @@ class Tag extends Model
         'description',
     ];
 
-    // Dichiaro la relazione per la Tabella Ponte "Movie"
     public function movies()
     {
         return $this->belongsToMany(Movies::class);
