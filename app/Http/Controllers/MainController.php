@@ -42,7 +42,7 @@ class MainController extends Controller
             'year' => 'required|integer|min:0',
             'cashOut' => 'required|integer|min:0',
             'genre_id' => 'required|integer|min:1',
-            'tags_id' => 'required|array',
+            'tags' => 'required|array',
 
         ]);
 
